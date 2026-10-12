@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanted: <%= wantedData.name %></title>
+</head>
+<body>
+    <h1>Wanted: <%= wantedData.name %></h1>
+    <img src="<%= wantedData.profile %>" alt="Arckép">
+    <ul>
+        <% wantedData.crimes.forEach(c => { %>
+            <li><%= c %></li>
+        <%  }); %>
+    </ul>
+    <a href="/">Főoldara vissza</a>
+</body>
+</html>

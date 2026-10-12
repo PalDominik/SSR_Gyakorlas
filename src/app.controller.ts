@@ -1,6 +1,11 @@
 import { Controller, Get, Render } from '@nestjs/common';
 import { AppService } from './app.service.js';
 import { title } from 'node:process';
+import fs from 'node:fs';
+import type { Kör } from './wanted.js';
+
+
+
 
 @Controller()
 export class AppController {
@@ -37,6 +42,14 @@ export class AppController {
     return{
       title: "Piros-Kék",
       szinvaltoztatas: rnd
+    }
+  }
+  @Get('wanted')
+  @Render('wanted')
+  getWanted(){
+    const wantedData = JSON.parse(fs.readFileSync('./data/wanted.json','utf-8')) as Kör;
+    return{
+        wantedData
     }
   }
 }
